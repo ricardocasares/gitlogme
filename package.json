@@ -6,7 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Ricardo Casares",
+    "url": "https://github.com/ricardocasares"
+  },
+  "contributors": [{
+    "name": "Vadzim Yakushau",
+    "url": "https://github.com/rootical"
+  }],
   "license": "ISC",
   "dependencies": {
     "commander": "^2.9.0",
