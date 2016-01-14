@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "git --log your last month to a file",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ricardocasares/gitlogme.git"
@@ -43,5 +40,8 @@
     "moment": "^2.11.1",
     "os-homedir": "^1.0.1",
     "starwars": "^1.0.0"
+  },
+  "bin": {
+    "gitlogme": "index.js"
   }
 }
