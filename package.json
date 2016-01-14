@@ -1,5 +1,5 @@
 {
-  "name": "pkup",
+  "name": "gitlogme",
   "version": "0.0.1",
   "description": "Runs a git command in order to extract samples of your work",
   "main": "index.js",
@@ -15,5 +15,8 @@
     "moment": "^2.11.1",
     "promptly": "^0.2.1",
     "user-home": "^2.0.0"
+  },
+  "bin": {
+    "gitlogme": "index.js"
   }
 }
