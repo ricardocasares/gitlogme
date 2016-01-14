@@ -51,7 +51,7 @@ function write(diff) {
             console.log(err);
         }
         console.log(path.join(program.dir, filename));
-        console.log('PKUP sample generated successfully');
+        console.log('Your previous month work has been generated successfully');
     });
 }
 
