@@ -15,5 +15,8 @@
     "moment": "^2.11.1",
     "promptly": "^0.2.1",
     "user-home": "^2.0.0"
+  },
+  "bin": {
+    "pkup": "index.js"
   }
 }
