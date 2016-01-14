@@ -1,0 +1,47 @@
+{
+  "name": "gitlogme",
+  "version": "1.0.0",
+  "description": "git --log your last month to a file",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardocasares/gitlogme.git"
+  },
+  "keywords": [
+    "git",
+    "log",
+    "pkup",
+    "changelog",
+    "work",
+    "samples",
+    "taxes",
+    "tax",
+    "pit"
+  ],
+  "author": {
+    "name": "Ricardo Casares",
+    "url": "https://github.com/ricardocasares"
+  },
+  "contributors": [
+    {
+      "name": "Vadzim Yakushau",
+      "url": "https://github.com/rootical"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ricardocasares/gitlogme/issues"
+  },
+  "homepage": "https://github.com/ricardocasares/gitlogme#readme",
+  "dependencies": {
+    "cli": "^0.11.1",
+    "git-user-email": "^0.2.1",
+    "git-user-name": "^1.1.2",
+    "moment": "^2.11.1",
+    "os-homedir": "^1.0.1",
+    "starwars": "^1.0.0"
+  }
+}
