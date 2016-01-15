@@ -2,6 +2,8 @@
 'use strict';
 
 var cli    = require('cli');
+var path   = require('path');
+var open   = require('open');
 var moment = require('moment');
 var quote  = require('starwars')();
 var spawn  = require('child_process').spawn;
@@ -37,14 +39,14 @@ cli.parse({
     email: ['e','Your git email', 'string', user.git.email],
     since: ['s','Date to log from, YYYY-MM-DD', 'string', user.dates.since],
     until: ['u','Date to log to, YYYY-MM-DD', 'string', user.dates.until],
-    output: ['o','Where do you want to save the file', 'path', user.home],
+    open: ['o','Open file upon creation', 'bool'],
+    dest: ['d','Where do you want to save the file', 'path', user.home]
 });
 
 /**
  * Call to main method
  */
 cli.main(main);
-
 
 /**
  * Main method
@@ -56,7 +58,7 @@ function main(args, options) {
     prepareOptions();
     cli.spinner(quote);
     var git = spawn('git', command());
-    var log = stream(cli.options.file);
+    var log = stream(cli.options.filename);
     // pipe stdout to log stream
     git.stdout.pipe(log);
     // say good-bye!
@@ -70,7 +72,10 @@ function main(args, options) {
  */
 function onGitClose(code) {
     cli.spinner(quote, true);
-    cli.ok(`There you go: ${cli.options.file}`);
+    cli.ok(`There you go: ${cli.options.filename}`);
+    if (cli.options.open) {
+        open(cli.options.filename);
+    }
 }
 
 /**
@@ -79,17 +84,22 @@ function onGitClose(code) {
 function prepareOptions() {
     var opts = cli.options;
 
-    if (!author()) throw new Error('You need to configure your git name or email.');
-
-    opts.since = moment(opts.since, 'YYYY-MM-DD');
-    opts.until = moment(opts.until, 'YYYY-MM-DD');
-    opts.file  = filename();
+    opts.since    = moment(opts.since, 'YYYY-MM-DD');
+    opts.until    = moment(opts.until, 'YYYY-MM-DD');
+    opts.filename = filename();
 
     [opts.since, opts.until].forEach((date) => {
-        if (!date.isValid()) throw new Error('Please provide dates in YYYY-MM-DD format.');
+        if (!date.isValid()) {
+            throw new Error('Please provide dates in YYYY-MM-DD format.');
+        }
     });
 
-    if(opts.until.isBefore(opts.since)) throw new Error('This ain\'t no time machine pal, "until" date must be after "since" date.');
+    if (!author()) {
+        throw new Error('You need to configure your git name or email.');
+    }
+    if (opts.until.isBefore(opts.since)) {
+        throw new Error('This ain\'t no time machine pal, "until" date must be after "since" date.');
+    }
 }
 
 /**
@@ -133,7 +143,7 @@ function filename() {
     var until = opts.until.format('YYYY-MM-DD');
     var name  = [project(), 'samples', since, 'to', until].join('-').concat('.txt');
 
-    return cli.native.path.join(opts.output, name);
+    return path.join(opts.dest, name);
 }
 
 /**
@@ -145,6 +155,6 @@ function project() {
     try {
         return require(path.join(process.cwd(), 'package.json')).name;
     } catch(e) {
-        return process.cwd().split(cli.native.path.sep).pop();
+        return process.cwd().split(path.sep).pop();
     }
 }

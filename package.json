@@ -38,6 +38,7 @@
     "git-user-email": "^0.2.1",
     "git-user-name": "^1.1.2",
     "moment": "^2.11.1",
+    "open": "0.0.5",
     "os-homedir": "^1.0.1",
     "starwars": "^1.0.0"
   },
