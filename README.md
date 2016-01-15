@@ -16,17 +16,16 @@ Then simply:
 #### Options
 All options are... optional! `gitlogme` will try to find out these by itself.
 
-`-n`, `--name [STRING]` Your git user
+| option | type | description |
+|------|------|-------------|
+|`-n` `--name`|String| Your git user |
+|`-e` `--email`|Email| Your git email |
+|`-s` `--since`|String| Date to log from, YYYY-MM-DD |
+|`-u` `--until`|String| Date to log to, YYYY-MM-DD |
+|`-d` `--dest`|Path| Where do you want to save the file, default is OS home dir |
+|`-o` `--open`|Boolean| Open the file upon creation |
+|`-h` `--help`|Boolean| Displays help menu |
 
-`-e`, `--email [STRING]` Your git email
-
-`-s`, `--since [STRING]` Date to log from, YYYY-MM-DD
-
-`-u`, `--until [STRING]` Date to log to, YYYY-MM-DD
-
-`-o`, `--output [PATH]` Where do you want to save the file (Default is your OS home folder)
-
-`-h`, `--help` Display help and usage details
 
 ## Contribute
 Feel free to fill an issue or send a pull-request.

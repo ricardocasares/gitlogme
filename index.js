@@ -6,7 +6,7 @@ var open   = require('open');
 var chalk  = require('chalk');
 var moment = require('moment');
 var quote  = require('starwars')();
-var spawn  = require('child_process').spawn;
+var spawn  = require('cross-spawn');
 var stream = require('fs').createWriteStream;
 
 /**
@@ -69,7 +69,7 @@ cli.main(main);
 function main(args, options) {
     prepareOptions();
     cli.spinner(spinner);
-    var git = spawn('git', command(), { cwd: __dirname });
+    var git = spawn('git', command(), { cwd: process.cwd() });
     var log = stream(cli.options.filename);
     // pipe stdout to log stream
     git.stdout.pipe(log);
