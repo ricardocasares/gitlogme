@@ -1,13 +1,25 @@
 #!/usr/bin/env node
 'use strict';
-
 var cli    = require('cli');
 var path   = require('path');
 var open   = require('open');
+var chalk  = require('chalk');
 var moment = require('moment');
 var quote  = require('starwars')();
 var spawn  = require('child_process').spawn;
 var stream = require('fs').createWriteStream;
+
+/**
+ * Chalk styles
+ */
+var b = chalk.bold;
+var g = chalk.green;
+var m = chalk.bgMagenta;
+
+/**
+ * Spinner text
+ */
+var spinner = m(b(`“${quote}”`));
 
 /**
  * User information
@@ -27,19 +39,19 @@ var user = {
 };
 
 /**
- * Catches all exceptions
+ * Plugins
  */
 cli.enable('catchall');
 
 /**
- * Parses the arguments given
+ * Parses the arguments given options
  */
 cli.parse({
     name: ['n','Your git user', 'string', user.git.name],
-    email: ['e','Your git email', 'string', user.git.email],
+    email: ['e','Your git email', 'email', user.git.email],
     since: ['s','Date to log from, YYYY-MM-DD', 'string', user.dates.since],
     until: ['u','Date to log to, YYYY-MM-DD', 'string', user.dates.until],
-    open: ['o','Open file upon creation', 'bool'],
+    open: ['o','Open file upon creation', 'boolean', false],
     dest: ['d','Where do you want to save the file', 'path', user.home]
 });
 
@@ -56,8 +68,8 @@ cli.main(main);
  */
 function main(args, options) {
     prepareOptions();
-    cli.spinner(quote);
-    var git = spawn('git', command());
+    cli.spinner(spinner);
+    var git = spawn('git', command(), { cwd: __dirname });
     var log = stream(cli.options.filename);
     // pipe stdout to log stream
     git.stdout.pipe(log);
@@ -71,8 +83,8 @@ function main(args, options) {
  * @param  {code} code Process exit code
  */
 function onGitClose(code) {
-    cli.spinner(quote, true);
-    cli.ok(`There you go: ${cli.options.filename}`);
+    cli.spinner(spinner, true);
+    console.log(g('✔'), `${cli.options.filename}`);
     if (cli.options.open) {
         open(cli.options.filename);
     }
