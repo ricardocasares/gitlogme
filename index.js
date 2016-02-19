@@ -7,7 +7,7 @@ var open   = require('open');
 var chalk  = require('chalk');
 var moment = require('moment');
 var quote  = require('starwars')();
-var spawn  = require('cross-spawn');
+var spawn  = require('cross-spawn-async');
 var stream = require('fs').createWriteStream;
 
 /**

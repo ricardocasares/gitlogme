@@ -36,7 +36,7 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "cli": "^0.11.1",
-    "cross-spawn": "^2.1.4",
+    "cross-spawn-async": "^2.1.8",
     "git-user-email": "^0.2.1",
     "git-user-name": "^1.1.2",
     "moment": "^2.11.1",
