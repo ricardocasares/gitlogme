@@ -97,7 +97,7 @@ function onGitClose(code) {
             cli.spinner(spinner, true);
             throw new Error('Dude, wake up, this is not a GIT repository...');
         default:
-            throw new Error('Some weird shit happened, git exited with code: ', code);
+            throw new Error('Some weird shit happened, git exited with code: ' + code);
     }
 }
 
