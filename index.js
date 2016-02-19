@@ -52,6 +52,7 @@ cli.parse({
     email: ['e','Your git email', 'email'],
     since: ['s','Date to log from, YYYY-MM-DD', 'string', user.dates.since],
     until: ['u','Date to log to, YYYY-MM-DD', 'string', user.dates.until],
+    format: ['f','Git log format', 'string', '%h%x09%an%x09%ad%x09%s'],
     open: ['o','Open file upon creation', 'boolean', false],
     dest: ['d','Where do you want to save the file', 'path', user.home]
 });
@@ -70,6 +71,7 @@ cli.main(main);
 function main() {
     prepareOptions();
     cli.spinner(spinner);
+    console.log(command().join(' '))
     var git = spawn('git', command(), { cwd: process.cwd() });
     var log = stream(cli.options.filename);
     // pipe stdout to log stream
@@ -141,7 +143,7 @@ function command() {
         `--until=${opts.until.format()}`,
         '--reverse',
         `--author=${author()}`,
-        '--pretty=format:"%h%x09%an%x09%ad%x09%s"',
+        `--pretty=format:"${opts.format}"`
     ];
 }
 
