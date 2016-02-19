@@ -1,31 +1,48 @@
 {
   "name": "gitlogme",
-  "version": "0.0.2",
-  "description": "Runs a git command in order to extract samples of your work",
+  "version": "1.0.0",
+  "description": "git --log your last month to a file",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardocasares/gitlogme.git"
   },
-  "repository" : { 
-    "type" : "git",
-    "url" : "https://github.com/ricardocasares/gitlogme"
-  },
+  "keywords": [
+    "git",
+    "log",
+    "pkup",
+    "changelog",
+    "work",
+    "samples",
+    "taxes",
+    "tax",
+    "pit"
+  ],
   "author": {
     "name": "Ricardo Casares",
     "url": "https://github.com/ricardocasares"
   },
-  "contributors": [{
-    "name": "Vadzim Yakushau",
-    "url": "https://github.com/rootical"
-  }],
-  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Vadzim Yakushau",
+      "url": "https://github.com/rootical"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ricardocasares/gitlogme/issues"
+  },
+  "homepage": "https://github.com/ricardocasares/gitlogme#readme",
   "dependencies": {
-    "commander": "^2.9.0",
+    "chalk": "^1.1.1",
+    "cli": "^0.11.1",
+    "cross-spawn": "^2.1.4",
     "git-user-email": "^0.2.1",
     "git-user-name": "^1.1.2",
     "moment": "^2.11.1",
-    "promptly": "^0.2.1",
-    "user-home": "^2.0.0"
+    "open": "0.0.5",
+    "os-homedir": "^1.0.1",
+    "starwars": "^1.0.0"
   },
   "bin": {
     "gitlogme": "index.js"
