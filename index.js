@@ -71,7 +71,6 @@ cli.main(main);
 function main() {
     prepareOptions();
     cli.spinner(spinner);
-    console.log(command().join(' '))
     var git = spawn('git', command(), { cwd: process.cwd() });
     var log = stream(cli.options.filename);
     // pipe stdout to log stream
