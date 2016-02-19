@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/ricardocasares/gitlogme/issues"
   },
-  "homepage": "https://github.com/ricardocasares/gitlogme#readme",
+  "homepage": "https://ricardocasares.github.io/gitlogme/",
   "dependencies": {
     "chalk": "^1.1.1",
     "cli": "^0.11.1",
