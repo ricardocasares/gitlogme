@@ -47,8 +47,8 @@ cli.enable('catchall');
  * Parses the arguments given options
  */
 cli.parse({
-    name: ['n','Your git user', 'string', user.git.name],
-    email: ['e','Your git email', 'email', user.git.email],
+    name: ['n','Your git user', 'string'],
+    email: ['e','Your git email', 'email'],
     since: ['s','Date to log from, YYYY-MM-DD', 'string', user.dates.since],
     until: ['u','Date to log to, YYYY-MM-DD', 'string', user.dates.until],
     open: ['o','Open file upon creation', 'boolean', false],
@@ -66,7 +66,7 @@ cli.main(main);
  * @param  {Array}  args     Arguments array
  * @param  {Object} options  Options object
  */
-function main(args, options) {
+function main() {
     prepareOptions();
     cli.spinner(spinner);
     var git = spawn('git', command(), { cwd: process.cwd() });
@@ -83,10 +83,19 @@ function main(args, options) {
  * @param  {code} code Process exit code
  */
 function onGitClose(code) {
-    cli.spinner(spinner, true);
-    console.log(g('✔'), `${cli.options.filename}`);
-    if (cli.options.open) {
-        open(cli.options.filename);
+    switch(code) {
+        case 0:
+            cli.spinner(spinner, true);
+            console.log(g('✔'), `${cli.options.filename}`);
+            if (cli.options.open) {
+                open(cli.options.filename);
+            }
+            break;
+        case 128:
+            cli.spinner(spinner, true);
+            throw new Error('Dude, wake up, this is not a GIT repository...');
+        default:
+            throw new Error('Some weird shit happened, git exited with code: ', code);
     }
 }
 
@@ -107,7 +116,7 @@ function prepareOptions() {
     });
 
     if (!author()) {
-        throw new Error('You need to configure your git name or email.');
+        throw new Error('You need to provide --name or --email, or set your git name or email configuration.');
     }
     if (opts.until.isBefore(opts.since)) {
         throw new Error('This ain\'t no time machine pal, "until" date must be after "since" date.');
@@ -141,7 +150,7 @@ function command() {
  * @return {String}         Git email or name
  */
 function author() {
-    return cli.options.email || cli.options.name;
+    return cli.options.email || cli.options.name || user.git.email || user.git.name;
 }
 
 /**
