@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 'use strict';
+
 var cli    = require('cli');
 var path   = require('path');
 var open   = require('open');

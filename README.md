@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # gitlogme
 `git log` your last month work to a file. with class.
 
@@ -29,3 +30,14 @@ All options are... optional! `gitlogme` will try to find out these by itself.
 
 ## Contribute
 Feel free to fill an issue or send a pull-request.
+=======
+# Git Log your last month work to a file
+
+## Usage:
+
+- Configure your git with proper author name 
+- `npm install -g gitlogme`
+- `cd your-project`
+- `gitlogme`
+- Find the generated log file in your user's folder
+>>>>>>> master
