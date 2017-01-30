@@ -1,6 +1,7 @@
 # gitlogme
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/ricardocasares/gitlogme.svg)](https://greenkeeper.io/)
+
 `git log` your last month work to a file. With class.
 
 ## Installation
