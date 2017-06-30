@@ -34,7 +34,7 @@
   },
   "homepage": "https://ricardocasares.github.io/gitlogme/",
   "dependencies": {
-    "chalk": "^1.1.1",
+    "chalk": "^2.0.0",
     "cli": "^1.0.0",
     "cross-spawn-async": "^2.1.8",
     "git-user-email": "^0.2.1",
