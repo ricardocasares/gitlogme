@@ -164,7 +164,7 @@ function filename() {
     var opts  = cli.options;
     var since = opts.since.format('YYYY-MM-DD');
     var until = opts.until.format('YYYY-MM-DD');
-    var name  = [project(), 'samples', since, 'to', until].join('-').concat('.txt');
+    var name  = [unwrapScope(project()), 'samples', since, 'to', until].join('-').concat('.txt');
 
     return path.join(opts.dest, name);
 }
@@ -180,4 +180,15 @@ function project() {
     } catch(e) {
         return process.cwd().split(path.sep).pop();
     }
+}
+
+/**
+ * Replaces slash with dash if package is scoped
+ *
+ * @param {String} name
+ * @return {String} Project name
+ */
+function unwrapScope(name) {
+    var isScoped = name.indexOf('@') !== -1;
+    return isScoped ? name.replace('/', '-') : name;
 }
