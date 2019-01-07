@@ -5,6 +5,10 @@
   "license": "MIT",
   "main": "index.js",
   "homepage": "https://ricardocasares.github.io/gitlogme/",
+  "author": {
+    "name": "Ricardo Casares",
+    "url": "https://analogic.al"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ricardocasares/gitlogme.git"
@@ -14,6 +18,10 @@
   },
   "bin": {
     "gitlogme": "index.js"
+  },
+  "scripts": {
+    "release": "npx semantic-release",
+    "prettier": "npx prettier --write **/*.js"
   },
   "dependencies": {
     "chalk": "^2.0.0",
@@ -26,6 +34,10 @@
     "os-homedir": "^1.0.1",
     "starwars": "^1.0.0"
   },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0"
+  },
   "release": {
     "plugins": [
       "@semantic-release/npm",
@@ -33,9 +45,16 @@
       "@semantic-release/release-notes-generator"
     ]
   },
-  "author": {
-    "name": "Ricardo Casares",
-    "url": "https://github.com/ricardocasares"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "git add"
+    ]
   },
   "contributors": [
     {
