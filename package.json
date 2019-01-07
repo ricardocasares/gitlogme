@@ -21,7 +21,7 @@
   },
   "scripts": {
     "commit": "npx git-cz",
-    "release": "npx semantic-release",
+    "release": "npx semantic-release@beta",
     "prettier": "npx prettier --write **/*.js"
   },
   "dependencies": {
