@@ -20,6 +20,7 @@
     "gitlogme": "index.js"
   },
   "scripts": {
+    "commit": "npx git-cz",
     "release": "npx semantic-release",
     "prettier": "npx prettier --write **/*.js"
   },
