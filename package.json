@@ -2,22 +2,37 @@
   "name": "gitlogme",
   "version": "1.1.1",
   "description": "git --log your last month to a file",
+  "license": "MIT",
   "main": "index.js",
+  "homepage": "https://ricardocasares.github.io/gitlogme/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ricardocasares/gitlogme.git"
   },
-  "keywords": [
-    "git",
-    "log",
-    "pkup",
-    "changelog",
-    "work",
-    "samples",
-    "taxes",
-    "tax",
-    "pit"
-  ],
+  "bugs": {
+    "url": "https://github.com/ricardocasares/gitlogme/issues"
+  },
+  "bin": {
+    "gitlogme": "index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.0.0",
+    "cli": "^1.0.0",
+    "cross-spawn-async": "^2.1.8",
+    "git-user-email": "^0.2.1",
+    "git-user-name": "^1.1.2",
+    "moment": "^2.11.1",
+    "open": "0.0.5",
+    "os-homedir": "^1.0.1",
+    "starwars": "^1.0.0"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
   "author": {
     "name": "Ricardo Casares",
     "url": "https://github.com/ricardocasares"
@@ -32,23 +47,15 @@
       "url": "https://github.com/alazurenko"
     }
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ricardocasares/gitlogme/issues"
-  },
-  "homepage": "https://ricardocasares.github.io/gitlogme/",
-  "dependencies": {
-    "chalk": "^2.0.0",
-    "cli": "^1.0.0",
-    "cross-spawn-async": "^2.1.8",
-    "git-user-email": "^0.2.1",
-    "git-user-name": "^1.1.2",
-    "moment": "^2.11.1",
-    "open": "0.0.5",
-    "os-homedir": "^1.0.1",
-    "starwars": "^1.0.0"
-  },
-  "bin": {
-    "gitlogme": "index.js"
-  }
+  "keywords": [
+    "git",
+    "log",
+    "pkup",
+    "changelog",
+    "work",
+    "samples",
+    "taxes",
+    "tax",
+    "pit"
+  ]
 }
