@@ -29,10 +29,10 @@
     "cli": "^1.0.0",
     "cross-spawn-async": "^2.1.8",
     "git-user-email": "^0.2.1",
-    "git-user-name": "^1.1.2",
+    "git-user-name": "^2.0.0",
     "moment": "^2.11.1",
     "open": "0.0.5",
-    "os-homedir": "^1.0.1",
+    "os-homedir": "^2.0.0",
     "starwars": "^1.0.0"
   },
   "devDependencies": {
