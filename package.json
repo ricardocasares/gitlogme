@@ -32,7 +32,7 @@
     "git-user-name": "^2.0.0",
     "moment": "^2.11.1",
     "open": "0.0.5",
-    "os-homedir": "^1.0.1",
+    "os-homedir": "^2.0.0",
     "starwars": "^1.0.0"
   },
   "devDependencies": {
