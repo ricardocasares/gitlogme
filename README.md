@@ -1,6 +1,6 @@
 # gitlogme
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ricardocasares/gitlogme.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/ricardocasares/gitlogme.svg?branch=master)](https://travis-ci.com/ricardocasares/gitlogme)
 
 `git log` your last month work to a file. With class.
 
