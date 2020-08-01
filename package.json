@@ -31,7 +31,7 @@
     "git-user-email": "^0.2.1",
     "git-user-name": "^2.0.0",
     "moment": "^2.11.1",
-    "open": "6.0.0",
+    "open": "7.1.0",
     "os-homedir": "^2.0.0",
     "starwars": "^1.0.0"
   },
