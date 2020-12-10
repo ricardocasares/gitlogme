@@ -25,7 +25,7 @@
     "prettier": "npx prettier --write **/*.js"
   },
   "dependencies": {
-    "chalk": "^2.0.0",
+    "chalk": "^4.1.0",
     "cli": "^1.0.0",
     "cross-spawn-async": "^2.1.8",
     "git-user-email": "^0.2.1",
