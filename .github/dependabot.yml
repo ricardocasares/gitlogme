@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "02:00"
+  open-pull-requests-limit: 10
+  target-branch: beta
+  ignore:
+  - dependency-name: open
+    versions:
+    - 7.3.0
+    - 7.3.1
+  - dependency-name: husky
+    versions:
+    - 4.3.6
+    - 4.3.8
+  - dependency-name: lint-staged
+    versions:
+    - 10.5.3
